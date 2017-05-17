@@ -18,8 +18,6 @@ class ChatController {
   }
 
   addNewMessage(){
-    var audio = new Audio('app/sounds/discreet1.mp3');
-    audio.play();
     if(!this.post)return;
     this.ChatService.addNewMessage(this.post,this.user.username);
     this.post = '';

@@ -14,6 +14,8 @@ export default class ChatService {
       post.datetime = new Date();
 
       this.posts.push(post);
+      const audio = new Audio('app/sounds/BELL.mp3');
+      audio.play();
 
     }, 5000, this.hardcodedPosts.length)
 

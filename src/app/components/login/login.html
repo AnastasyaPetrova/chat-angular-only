@@ -6,12 +6,19 @@
       <div class="main-block">
 
           <form name="$ctrl.loginForm" ng-submit="$ctrl.logInfo()" class="login" novalidate>
-            <input name="login" type="text" ng-model="$ctrl.name" class="name-login-input" placeholder="your name" required="true"/>
-            <span ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.login.$error.required"> Login is required.</span>
-            <input name="password" type="password" ng-model="$ctrl.password" class="name-login-input" placeholder="your password" required="true"/>
-            <span ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.password.$error.required"> Password is required.</span>
-            <button type="submit" class="btn btn-submit">log in</button>
-            <div  class="col-xs-12"ng-if="$ctrl.error">{{$ctrl.error}}</div>
+            <div>
+              <input name="login" type="text" ng-model="$ctrl.name" class="name-login-input" placeholder="your name" required="true"/>
+              <div ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.login.$error.required"> Login is required.</div>
+            </div>
+            <div>
+              <input name="password" type="password" ng-model="$ctrl.password" class="name-login-input" placeholder="your password" required="true"/>
+              <div ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.password.$error.required"> Password is required.</div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-submit">log in</button>
+              <div  class="col-xs-12" ng-if="$ctrl.error">{{$ctrl.error}}</div>
+            </div>
+
 
           </form>
 
