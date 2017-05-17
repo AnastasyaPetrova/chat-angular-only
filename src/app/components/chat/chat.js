@@ -1,10 +1,36 @@
 class ChatController {
-  constructor() {
-    this.text = 'My brand new component!';
+  constructor($log, $scope, $state, AuthService, ChatService) {
+    'ngInject';
+
+    this.$log = $log;
+    this.$scope = $scope;
+    this.$state = $state;
+    this.AuthService = AuthService;
+    this.ChatService = ChatService;
+    //console.log('chat', this);
+  }
+
+  $onInit() {
+    console.log('this.AuthService',this.AuthService.posts)
+    this.ChatService.runFakePosts();
+  }
+
+  logout(){
+    this.AuthService.logout();
+  }
+
+  addNewMessage(){
+    console.log('123123');
+    if(!this.post)return;
+    this.ChatService.addNewMessage(this.post,this.user.username);
+    this.post = '';
   }
 }
 
 export const chat = {
+  bindings:{
+    user:'<'
+  },
   template: require('./chat.html'),
   controller: ChatController
 };

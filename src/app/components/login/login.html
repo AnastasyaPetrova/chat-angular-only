@@ -1,17 +1,25 @@
 <div class="component">
   <!--<h2>{{$ctrl.text}}</h2>-->
   <div class="main-container">
-    <fountain-header></fountain-header>
     <!--<login class="main">-->
-    <form ng-submit="$ctrl.login(form)" class="login">
-      <input  type="text" ng-model="$ctrl.name" class="name-login-input" placeholder="your name"></input>
-      <input  type="text" ng-model="$ctrl.pass" class="name-login-input" placeholder="your password"></input>
-      <button type="submit" class="btn btn-submit">log in</button>
-    </form>
-    <!--<fountain-title></fountain-title>-->
+    <div class="main-block-parent">
+      <div class="main-block">
+
+          <form name="$ctrl.loginForm" ng-submit="$ctrl.logInfo()" class="login" novalidate>
+            <input name="login" type="text" ng-model="$ctrl.name" class="name-login-input" placeholder="your name" required="true"/>
+            <span ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.login.$error.required"> Login is required.</span>
+            <input name="password" type="password" ng-model="$ctrl.password" class="name-login-input" placeholder="your password" required="true"/>
+            <span ng-if="$ctrl.loginForm.$submitted && $ctrl.loginForm.password.$error.required"> Password is required.</span>
+            <button type="submit" class="btn btn-submit">log in</button>
+            <div  class="col-xs-12"ng-if="$ctrl.error">{{$ctrl.error}}</div>
+
+          </form>
+
+    <!--untain-title>-->
     <!--<fountain-techs></fountain-techs>-->
     <!--</login>-->
-    <fountain-footer></fountain-footer>
+      </div>
+    </div>
   </div>
 
 </div>
