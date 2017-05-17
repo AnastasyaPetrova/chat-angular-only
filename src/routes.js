@@ -7,7 +7,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('app', {
-      url: '/login',
+      url: '/',
       component: 'app'
+    })
+    .state('login', {
+      url: '/login',
+      component: 'login'
     });
 }
