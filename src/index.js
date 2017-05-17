@@ -12,7 +12,6 @@ import {login} from './app/components/login/login';
 import AuthService from './app/services/auth.service';
 import ChatService from './app/services/chat.service';
 
-
 import './index.scss';
 
 angular

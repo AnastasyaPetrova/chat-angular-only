@@ -27,20 +27,16 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 function guardLogin($state,AuthService){
   'ngInject'
 
-  console.log('222222')
   const user = AuthService.checkIsLoggedIn();
-  console.log('guardLogin',user);
   if(user){
     $state.go('chat');
     return Promise.reject('Redirected to chat from login');
   }
 }
 
-
 function guardChat($state,AuthService) {
   'ngInject'
 
-  console.log('11111')
   const user = AuthService.checkIsLoggedIn();
   if(!user){
     $state.go('login');
@@ -51,7 +47,6 @@ function guardChat($state,AuthService) {
 function getUser($state,AuthService,guardChat){
   'ngInject'
 
-  console.log('333333')
   const user = AuthService.getMyUserProfile();
 
   return user;
@@ -59,7 +54,6 @@ function getUser($state,AuthService,guardChat){
 
 function getLastUsername(AuthService){
 
-  console.log('333333')
   const lastUsername = AuthService.getLastUsername();
 
   return lastUsername;

@@ -1,30 +1,25 @@
 <div class="component">
-  <!--<h2>{{$ctrl.text}}</h2>-->
-
-
   <div class="main-container">
     <main class="main">
       <div class="main-block-parent">
-
         <div class="main-block">
           <button class="btn btn-logout" ng-click="$ctrl.logout()">log out</button>
           <div class="posts" >
             <div class="post" ng-repeat="message in $ctrl.ChatService.posts| orderBy: 'datetime'">
               <div  ng-class="{'post-mine':message.username==$ctrl.user.username}">
+                <div class="datetime"  ng-class=(message.username==$ctrl.user.username)?'mine-datetime':'not-mine-datetime'>{{::message.datetime| date:'MM/dd/yyyy @ h:mma'}}</div>
                 <div class="username">{{::message.username}}</div>
-                <div class="text0of-post">{{::message.text}}</div>
-                <div>{{::message.datetime| date:'MM/dd/yyyy @ h:mma'}}</div>
+                <div class="text-of-post">{{::message.text}}</div>
+
               </div>
             </div>
           </div>
           <form class="post-form" >
-              <input  type="text" ng-model="$ctrl.post"></input>
+              <input  type="text" ng-model="$ctrl.post"/>
             <button ng-click="$ctrl.addNewMessage()" class="btn btn-post">post</button>
           </form>
         </div>
       </div>
-      <!--<fountain-title></fountain-title>-->
-      <!--<fountain-techs></fountain-techs>-->
     </main>
   </div>
 

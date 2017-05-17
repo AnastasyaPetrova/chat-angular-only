@@ -7,11 +7,9 @@ class ChatController {
     this.$state = $state;
     this.AuthService = AuthService;
     this.ChatService = ChatService;
-    //console.log('chat', this);
   }
 
   $onInit() {
-    console.log('this.AuthService',this.AuthService.posts)
     this.ChatService.runFakePosts();
   }
 
@@ -20,7 +18,8 @@ class ChatController {
   }
 
   addNewMessage(){
-    console.log('123123');
+    var audio = new Audio('app/sounds/discreet1.mp3');
+    audio.play();
     if(!this.post)return;
     this.ChatService.addNewMessage(this.post,this.user.username);
     this.post = '';

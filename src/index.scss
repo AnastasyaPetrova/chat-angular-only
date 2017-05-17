@@ -145,7 +145,6 @@ input{
 }
 .main-block{
   padding:20px;
-
   height:700px;
   position: relative;
   //background-color:blueviolet;
@@ -172,6 +171,8 @@ input{
   border:2px solid blueviolet;
   border-radius: 5px;
   height:calc(100% - 70px);
+  overflow-y: scroll;
+
 }
 
 .post{
@@ -202,9 +203,19 @@ input{
   border-radius: 5px;
 }
 .btn-logout{
-  margin:0 0 10px 0;
+  position:absolute;
+  left: -100px;
 }
 .username{
   font-size:16px;
   font-weight:bold;
+}
+.datetime, .username{
+  display: inline-block;
+}
+.mine-datetime{
+  float:left;
+}
+.not-mine-datetime{
+  float:right;
 }

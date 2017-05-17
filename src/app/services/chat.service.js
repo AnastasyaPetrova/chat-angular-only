@@ -2,11 +2,8 @@ export default class ChatService {
   constructor($state, $interval) {
     this.$state = $state;
     this.$interval = $interval;
-
     this.posts = [];
-
     this.hardcodedPosts = require('./hardcodedPosts.json');
-
 
   }
 
@@ -39,6 +36,5 @@ export default class ChatService {
       datetime: new Date()};
 
     this.posts.push(newMessage);
-    console.log('this.messages',text,this.posts);
   }
 }

@@ -9,16 +9,10 @@ class LoginController {
     this.AuthService = AuthService;
   }
 
-  $onInit() {
-    this.text = 'My brand new component!';
-  }
-
   logInfo() {
-    this.$log.log('this.loginForm', this.loginForm);
     if (!this.loginForm.$valid) {
       return;
     }
-    this.$log.log('valid');
     this.AuthService.login(this.name, this.password).then(()=>{
       this.$state.go('chat');
 
